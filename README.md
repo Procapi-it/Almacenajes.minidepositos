@@ -1,44 +1,86 @@
-# Astro Starter Kit: Basics
+# Almacenajes Minidepósitos Landing Page 🏢
 
-```sh
-npm create astro@latest -- --template basics
+![Astro Badge](https://img.shields.io/badge/Built%20with-Astro-blueviolet?style=for-the-badge&logo=astro)
+![Tailwind Badge](https://img.shields.io/badge/Styled%20with-Tailwind-38bdf8?style=for-the-badge&logo=tailwindcss)
+![TypeScript Badge](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript)
+
+A modern, responsive website for Almacenajes Minidepósitos, a self-storage business with multiple locations across Panama. The site showcases their storage solutions, locations, features, and allows users to request quotes.
+
+![Website Preview](public/Almacenajes-Minidepositos.webp)
+
+## ✨ Features
+
+- **Modern UI/UX** - Clean, responsive design optimized for all devices
+- **Interactive Elements** - Animations, sliders, and interactive maps
+- **Quote Request System** - Integrated Pipedrive form for lead generation
+- **Location Finder** - Interactive map showing all storage locations
+- **SEO Optimized** - Structured data, meta tags, and performance optimization
+
+## 🛠️ Tech Stack
+
+- [Astro](https://astro.build/) - Fast, modern static site generator
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [AOS](https://michalsnik.github.io/aos/) - Animate On Scroll library
+- [Swiffy Slider](https://swiffyslider.com/) - Lightweight slider library
+- [Flowbite](https://flowbite.com/) - UI component library
+- [TW Elements](https://tw-elements.com/) - Tailwind Components
+
+## 📁 Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
+├── public/               # Static assets (favicon, etc.)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/           # Images and other assets
+│   ├── components/       # UI components
+│   │   ├── Banner.astro
+│   │   ├── Beneficios.astro
+│   │   ├── Cotizacion.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Recomendaciones.astro
+│   │   ├── Size.astro
+│   │   ├── Soluciones.astro
+│   │   ├── Steps.astro
+│   │   └── Sucursales.astro
+│   ├── css/              # CSS styles
+│   ├── js/               # JavaScript utilities
+│   ├── layouts/          # Layout templates
+│   └── pages/            # Page components
+├── .astro/               # Astro configuration
+├── astro.config.mjs      # Astro configuration
+└── tailwind.config.mjs   # Tailwind configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚀 Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Prerequisites
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Node.js 16.x or later
+- npm or yarn
 
-## 🧞 Commands
+### Installation
 
-All commands are run from the root of the project, from a terminal:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/almacenajes-minidepositos.git
+cd almacenajes-minidepositos
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and visit `http://localhost:4321`
+
+## 📝 Available Commands
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -49,6 +91,23 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🌐 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The site uses standard Astro build processes. After building with `npm run build`, the static files in the `dist` directory can be deployed to any static hosting service.
+
+## 🔍 SEO Optimization
+
+This site includes:
+- Structured data for rich search results
+- Meta tags for social media sharing
+- Optimized images with WebP format
+- XML sitemap
+- `Robots.txt` configuration
+
+## 📄 License
+
+This project is proprietary and belongs to Almacenajes, S.A. All rights reserved.
+
+---
+
+Developed with ❤️ for Almacenajes Minidepósitos
