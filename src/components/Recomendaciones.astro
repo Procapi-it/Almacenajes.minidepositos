@@ -1,12 +1,15 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Recomendaciones" class="pt-14">
     <div data-aos="fade-down" data-aos-offset="0">
         <h2 class="text-center text-3xl m-2">
-            Recomendaciones de almacenamiento seguro y eficiente
-        </h3>
+            {lang === 'es' ? 'Recomendaciones de almacenamiento seguro y eficiente' : 'Recommendations for safe and efficient storage'}
+        </h2>
         <div class="lg:border-b lg:border-t lg:border-none">
             <div
                 id="accordion-nested-parent"
@@ -22,7 +25,7 @@ console.log("javascript");
                         aria-controls="accordion-collapse-body-1"
                     >
                         <span
-                            >Evaluar la necesidad de tener espacio en casa</span
+                            >{t('recomendaciones.acordeon1')}</span
                         >
                         <svg
                             data-accordion-icon
@@ -48,11 +51,7 @@ console.log("javascript");
                 >
                     <div class="p-5 border border-gray-200">
                         <p class="mb-2 text-black">
-                            Observa si hay áreas de tu casa aglomeradas con
-                            objetos que no usas con frecuencia. Puedes liberar
-                            espacio en tu hogar alquilando un depósito o locker
-                            a la medida, sin tener que deshacerte de tus
-                            pertenencias.
+                            {t('recomendaciones.desc1')}
                         </p>
                     </div>
                 </div>
@@ -64,7 +63,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-2"
                     >
-                        <span>Elegir el tipo de almacenamiento adecuado</span>
+                        <span>{t('recomendaciones.acordeon2')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -89,12 +88,7 @@ console.log("javascript");
                 >
                     <div class="p-5 border border-gray-200">
                         <p class="mb-2 text-black">
-                            El volumen de tus artículos determina el tamaño del
-                            depósito que necesitas. Puedes encontrar opciones
-                            tipo locker para guardar objetos pequeños como
-                            documentos, maletas de viaje y equipo deportivo, o
-                            mini bodegas para guardar artículos más grandes como
-                            muebles.
+                            {t('recomendaciones.desc2')}
                         </p>
                     </div>
                 </div>
@@ -106,7 +100,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-3"
                     >
-                        <span>Preparar los artículos para su almacenaje</span>
+                        <span>{t('recomendaciones.acordeon3')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -131,11 +125,7 @@ console.log("javascript");
                 >
                     <div class="p-5 border border-gray-200">
                         <p class="mb-2 text-black">
-                            Asegúrate de que las cajas, cintas y demás
-                            materiales de embalaje estén en condiciones óptimas.
-                            Limpia y protege los artículos delicados utilizando
-                            plástico de burbujas, papel arrugado o mantas
-                            protectoras.
+                            {t('recomendaciones.desc3')}
                         </p>
                     </div>
                 </div>
@@ -147,9 +137,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-4"
                     >
-                        <span
-                            >Recomendaciones a la hora de guardar en cajas</span
-                        >
+                        <span>{t('recomendaciones.acordeon4')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -186,7 +174,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Llena las cajas completamente para evitar aplastamientos.
+                                {t('recomendaciones.item4.1')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -200,8 +188,21 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Usa papel arrugado o plástico de burbujas para rellenar
-                                espacios vacíos.
+                                {t('recomendaciones.item4.2')}
+                            </li>
+                            <li class="flex items-baseline">
+                                <svg
+                                    class="w-3.5 h-3.5 me-2 text-orange-500 flex-shrink-0"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                                    ></path>
+                                </svg>
+                                {t('recomendaciones.item4.3')}
                             </li>
                         </ul>
                     </div>
@@ -214,7 +215,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-5"
                     >
-                        <span>Transporte de los artículos al depósito</span>
+                        <span>{t('recomendaciones.acordeon5')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -251,9 +252,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Planifica tu mudanza con tiempo para minimizar daños,
-                                puedes contar con nuestro servicio de mudanza para
-                                el transporte seguro.
+                                {t('recomendaciones.item5.1')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -267,8 +266,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Te brindamos asistencia en la descarga, uso gratuito
-                                de montacargas y carretillas.
+                                {t('recomendaciones.item5.2')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -282,8 +280,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Tu vehículo puede ingresar hasta la puerta de tu
-                                depósito, bodega o locker.
+                                {t('recomendaciones.item5.3')}
                             </li>
                         </ul>
                     </div>
@@ -296,9 +293,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-6"
                     >
-                        <span
-                            >Almacenaje de cajas en los depósitos o bodegas</span
-                        >
+                        <span>{t('recomendaciones.acordeon6')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -335,8 +330,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Llena las cajas completamente para evitar que se
-                                colapsen.
+                                {t('recomendaciones.item6.1')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -350,7 +344,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Haz una lista del contenido y etiqueta cada caja.
+                                {t('recomendaciones.item6.2')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -364,7 +358,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Coloca cajas pesadas abajo y las livianas arriba.
+                                {t('recomendaciones.item6.3')}
                             </li>
                         </ul>
                     </div>
@@ -377,7 +371,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-7"
                     >
-                        <span>Organización dentro del depósito</span>
+                        <span>{t('recomendaciones.acordeon7')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -414,7 +408,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Coloca bienes de muy poco uso al fondo.
+                                {t('recomendaciones.item7.1')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -428,7 +422,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Mantén bienes de uso regular al frente.
+                                {t('recomendaciones.item7.2')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -442,8 +436,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Usa cobertores de plástico y bolsas desecantes para
-                                proteger tus bienes.
+                                {t('recomendaciones.item7.3')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -457,7 +450,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Apila cajas hasta el techo para maximizar el espacio.
+                                {t('recomendaciones.item7.4')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -471,7 +464,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Coloca las etiquetas visibles para fácil identificación.
+                                {t('recomendaciones.item7.5')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -485,8 +478,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Deja espacio entre las paredes y las cajas para la
-                                circulación de aire.
+                                {t('recomendaciones.item7.6')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -500,8 +492,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Almacena artículos frágiles en la parte trasera y
-                                pesados abajo.
+                                {t('recomendaciones.item7.7')}
                             </li>
                             <li class="flex items-baseline">
                                 <svg
@@ -515,7 +506,7 @@ console.log("javascript");
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                     ></path>
                                 </svg>
-                                Mantén artículos de acceso frecuente cerca del frente.
+                                {t('recomendaciones.item7.8')}
                             </li>
                         </ul>
                     </div>
@@ -528,10 +519,7 @@ console.log("javascript");
                         aria-expanded="false"
                         aria-controls="accordion-collapse-body-8"
                     >
-                        <span
-                            >Cómo preparar y empacar artículos para su
-                            almacenamiento</span
-                        >
+                        <span>{t('recomendaciones.acordeon8')}</span>
                         <svg
                             data-accordion-icon
                             class="w-3 h-3 rotate-180 shrink-0"
@@ -568,7 +556,7 @@ console.log("javascript");
                                     aria-expanded="false"
                                     aria-controls="accordion-nested-collapse-body-1"
                                 >
-                                    <span>Almacenamiento de colchones</span>
+                                    <span>{t('recomendaciones.acordeon4')}</span>
                                     <svg
                                         data-accordion-icon
                                         class="w-3 h-3 rotate-180 shrink-0"
@@ -605,7 +593,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Aspira y limpia tu colchón antes de guardarlo.
+                                            {t('recomendaciones.colchones.item1')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -619,8 +607,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Usa una funda plástica resistente para
-                                            protegerlo.
+                                            {t('recomendaciones.colchones.item2')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -634,8 +621,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Almacena el colchón en posición horizontal
-                                            para evitar deformaciones.
+                                            {t('recomendaciones.colchones.item3')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -649,8 +635,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Espolvorea bicarbonato de sodio para
-                                            liberarlo de olores.
+                                            {t('recomendaciones.colchones.item4')}
                                         </li>
                                     </ul>
                                 </div>
@@ -663,10 +648,7 @@ console.log("javascript");
                                     aria-expanded="false"
                                     aria-controls="accordion-nested-collapse-body-2"
                                 >
-                                    <span
-                                        >Almacenamiento seguro para
-                                        refrigeradores</span
-                                    >
+                                    <span>{t('recomendaciones.refrigeradores')}</span>
                                     <svg
                                         data-accordion-icon
                                         class="w-3 h-3 rotate-180 shrink-0"
@@ -703,8 +685,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Apaga el refrigerador 24 horas antes
-                                            de guardarlo.
+                                            {t('recomendaciones.refrigeradores.item1')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -718,8 +699,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Limpia y desinfecta el interior para
-                                            prevenir malos olores.
+                                            {t('recomendaciones.refrigeradores.item2')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -733,8 +713,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Asegúrate de que esté completamente seco
-                                            antes de ser almacenado.
+                                            {t('recomendaciones.refrigeradores.item3')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -748,7 +727,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Guárdalo en posición vertical.
+                                            {t('recomendaciones.refrigeradores.item4')}
                                         </li>
                                     </ul>
                                 </div>
@@ -761,10 +740,7 @@ console.log("javascript");
                                     aria-expanded="false"
                                     aria-controls="accordion-nested-collapse-body-3"
                                 >
-                                    <span
-                                        >Almacenamiento de televisores de
-                                        pantalla plana</span
-                                    >
+                                    <span>{t('recomendaciones.televisores')}</span>
                                     <svg
                                         data-accordion-icon
                                         class="w-3 h-3 rotate-180 shrink-0"
@@ -801,8 +777,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Asegura el cable de alimentación con
-                                            cinta adhesiva.
+                                            {t('recomendaciones.televisores.item1')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -816,8 +791,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Envuelve la pantalla en foam y encima
-                                            con plástico de burbujas.
+                                            {t('recomendaciones.televisores.item2')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -831,7 +805,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Usa la caja original o una caja resistente.
+                                            {t('recomendaciones.televisores.item3')}
                                         </li>
                                         <li class="flex items-baseline">
                                             <svg
@@ -845,8 +819,7 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Marca la caja con “Frágil” y “Manténgase
-                                            vertical” en ambas caras de la caja.
+                                            {t('recomendaciones.televisores.item4')}
                                         </li>
                                     </ul>
                                 </div>
@@ -859,9 +832,7 @@ console.log("javascript");
                                     aria-expanded="false"
                                     aria-controls="accordion-nested-collapse-body-4"
                                 >
-                                    <span
-                                        >Guardar objetos de valor afectivo</span
-                                    >
+                                    <span>{t('recomendaciones.objetos_valor')}</span>
                                     <svg
                                         data-accordion-icon
                                         class="w-3 h-3 rotate-180 shrink-0"
@@ -898,11 +869,35 @@ console.log("javascript");
                                                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
                                                 ></path>
                                             </svg>
-                                            Puedes utilizar un mini depósito de tipo
-                                            locker para conservar aquellos artículos
-                                            y recuerdos de valor sentimental. Puedes
-                                            depositarlos en cajas plásticas para
-                                            mayor protección.
+                                            {t('recomendaciones.objetos_valor.item1')}
+                                        </li>
+                                        <li class="flex items-baseline">
+                                            <svg
+                                                class="w-3.5 h-3.5 me-2 text-orange-500 flex-shrink-0"
+                                                aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                                                ></path>
+                                            </svg>
+                                            {t('recomendaciones.objetos_valor.item2')}
+                                        </li>
+                                        <li class="flex items-baseline">
+                                            <svg
+                                                class="w-3.5 h-3.5 me-2 text-orange-500 flex-shrink-0"
+                                                aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                                                ></path>
+                                            </svg>
+                                            {t('recomendaciones.objetos_valor.item3')}
                                         </li>
                                     </ul>
                                 </div>

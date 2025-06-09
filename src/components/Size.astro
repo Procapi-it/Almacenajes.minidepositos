@@ -1,17 +1,17 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Size" class="m-auto pt-14">
   <div data-aos="fade-down" data-aos-offset="0">
     <h2 class="text-center text-3xl m-2">
-      Tamaños de depósitos disponibles según tus necesidades
+      {t('size.titulo')}
     </h2>
     <p class="text-justify">
-      Con nuestras guías visuales descubre lo fácil y rápido que es guardar tus
-      pertenencias, muebles, objetos de valor, objetos de temporada, colecciones
-      importantes, equipos deportivos, desde lo más grande hasta lo más pequeño
-      en Almacenajes Minidepósitos siempre te resolvemos.
+      {t('size.descripcion')}
     </p>
 
     <div
@@ -51,8 +51,8 @@ console.log("javascript");
         </li>
       </ul>
 
-      <button type="button" class="slider-nav" aria-label="Anterior"></button>
-      <button type="button" class="slider-nav slider-nav-next" aria-label="Siguiente"></button>
+      <button type="button" class="slider-nav" aria-label={lang === 'es' ? 'Anterior' : 'Previous'}></button>
+      <button type="button" class="slider-nav slider-nav-next" aria-label={lang === 'es' ? 'Siguiente' : 'Next'}></button>
 
       <ul class="slider-indicators">
         <li class=""></li>

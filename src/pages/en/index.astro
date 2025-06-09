@@ -1,0 +1,96 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Banner from "../../components/Banner.astro";
+import Steps from "../../components/Steps.astro";
+import Sucursales from "../../components/Sucursales.astro";
+import Size from "../../components/Size.astro";
+import Soluciones from "../../components/Soluciones.astro";
+import Cotizacion from "../../components/Cotizacion.astro";
+import Footer from "../../components/Footer.astro";
+import Beneficios from "../../components/Beneficios.astro";
+import Recomendaciones from "../../components/Recomendaciones.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+---
+
+<Layout title={t('site.title')}>
+	<main>
+		<Header />
+		<Banner />
+		<div class="container m-auto sm:px-sm md:px:px-md lg:px-lg xl:px-xl ">
+			<Cotizacion />
+			<Soluciones />
+			<Beneficios />
+			<Steps />
+			<Size />
+			<Sucursales />
+			<Recomendaciones />
+		</div>
+		<Footer />
+	</main>
+</Layout>
+
+
+<style>
+	main {
+		margin: auto;
+		color: #000000;
+		font-size: 20px;
+		line-height: 1.6;
+		position: relative;
+	}
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	h2 {
+		display: block;
+		font-size: 1.5em;
+		margin-top: 0.83em;
+		margin-bottom: 0.83em;
+		margin-left: 0;
+		margin-right: 0;
+		font-weight: bold;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>

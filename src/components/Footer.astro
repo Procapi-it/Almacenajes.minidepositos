@@ -1,5 +1,8 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -9,7 +12,7 @@ console.log("javascript");
 >
     <div>
         <h2 class="text-center text-3xl m-2">
-            Contacto Almacenajes Minidepósitos
+            {t('footer.contacto')} Almacenajes Minidepósitos
         </h2>
         <div>
             <div class="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
@@ -21,7 +24,7 @@ console.log("javascript");
                             <p
                                 class="mb-2 font-bold text-gray-900 sm:text-2xl sm:tracking-tight text-center"
                             >
-                                Horarios de acceso a su depósito
+                                {t('footer.horario_acceso')}
                             </p>
                         </div>
                         <div class="mt-2">
@@ -46,14 +49,13 @@ console.log("javascript");
                                         >
                                     </div>
                                     <p class="mx-3">
-                                        Lunes a Domingo <br />
+                                        {t('footer.lunes_domingo')} <br />
                                         6:00 a.m. a 6:00 p.m.
                                     </p>
                                 </div>
                                 <div class="flex items-center mt-6">
                                     <p class="text-left ml-16">
-                                        Pregunta por nuestros <br />
-                                        Horarios Extendidos
+                                        {t('footer.horarios_extendidos')}
                                     </p>
                                 </div>
                             </div>
@@ -64,7 +66,7 @@ console.log("javascript");
                             <p
                                 class="mb-2 font-bold text-gray-900 sm:text-2xl sm:tracking-tight text-center"
                             >
-                                Horarios de oficinas
+                                {t('footer.horario_oficina')}
                             </p>
                         </div>
                         <div class="mt-2">
@@ -89,13 +91,13 @@ console.log("javascript");
                                         >
                                     </div>
                                     <p class="mx-3">
-                                        Lunes a Viernes: <br />
+                                        {t('footer.lunes_viernes')}: <br />
                                         8:00 a.m. a 5:00 p.m.
                                     </p>
                                 </div>
                                 <div class="flex items-center mt-6">
                                     <p class="text-left ml-16">
-                                        Sábados: <br />
+                                        {t('footer.sabados')}: <br />
                                         8:00 a.m. a 12:00 p.m.
                                     </p>
                                 </div>
@@ -107,7 +109,7 @@ console.log("javascript");
                             <p
                                 class="mb-2 font-bold text-gray-900 sm:text-2xl sm:tracking-tight text-center"
                             >
-                                Síguenos en nuestras redes sociales
+                                {t('footer.redes_sociales')}
                             </p>
                         </div>
                         <div class="mt-2">
@@ -178,7 +180,7 @@ console.log("javascript");
                     <p
                         class="text-sm leading-5 text-black-400 xs:text-center sm:text-center md:text-center lg:text-center xl:text-center"
                     >
-                        Derechos reservados &copy; Almacenajes, S.A.
+                        {t('footer.derechos')} &copy; Almacenajes, S.A.
                     </p>
                 </div>
             </div>

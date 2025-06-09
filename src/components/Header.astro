@@ -1,5 +1,9 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations, localizePath } from "../i18n/utils";
+import { languages } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <script>
@@ -17,9 +21,9 @@ console.log("javascript");
   >
     <div class="flex w-full flex-wrap  px-3">
       <div class="flex flex-auto justify-around items-center">
-        <a href="https://www.almacenajes-minidepositos.com/#Inicio">
+        <a href={localizePath("/#Inicio", lang)}>
           <img
-            src="./Almacenajes-Minidepositos.webp"
+            src="/Almacenajes-Minidepositos.webp"
             alt="Almacenajes minidepósitos"
             class="mx-4 my-2 justify-around"
             width="150"
@@ -68,31 +72,31 @@ console.log("javascript");
           <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Inicio"
+              href={localizePath("/#Inicio", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Inicio</a
+              data-twe-ripple-color="light">{t('header.inicio')}</a
             >
           </li>
           <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Cotizacion"
+              href={localizePath("/#Cotizacion", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Cotización</a
+              data-twe-ripple-color="light">{t('header.cotizacion')}</a
             >
           </li>
           <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Sucursales"
+              href={localizePath("/#Sucursales", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Sucursales</a
+              data-twe-ripple-color="light">{t('header.sucursales')}</a
             >
           </li>
           <div class=" m-auto mb-4 lg:mb-0 lg:pe-2 " data-twe-dropdown-ref>
@@ -104,7 +108,7 @@ console.log("javascript");
               id="dropdownMenuButton2"
               data-twe-dropdown-toggle-ref
               aria-expanded="false">
-              Servicios
+              {t('header.servicios')}
               <span class="ms-2 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,28 +128,28 @@ console.log("javascript");
               <li>
                 <a
                   class="block w-full whitespace-nowrap  hover:text-orange-500 hover:ease-in-out px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-slate-50 focus:bg-slate-50 focus:outline-none active:bg-slate-50 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="#Soluciones"
+                  href={localizePath("/#Soluciones", lang)}
                   rel="noreferrer"
                   data-twe-dropdown-item-ref
-                  >Soluciones</a
+                  >{t('header.soluciones')}</a
                 >
               </li>
               <li>
                 <a
                   class="block w-full whitespace-nowrap  hover:text-orange-500 hover:ease-in-out px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-slate-50 focus:bg-slate-50 focus:outline-none active:bg-slate-50 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="#Beneficios"
+                  href={localizePath("/#Beneficios", lang)}
                   rel="noreferrer"
                   data-twe-dropdown-item-ref
-                  >Beneficios</a
+                  >{t('header.beneficios')}</a
                 >
               </li>
               <li>
                 <a
                   class="block w-full whitespace-nowrap  hover:text-orange-500 hover:ease-in-out px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-slate-50 focus:bg-slate-50 focus:outline-none active:bg-slate-50 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="#Steps"
+                  href={localizePath("/#Steps", lang)}
                   rel="noreferrer"
                   data-twe-dropdown-item-ref
-                  >¿Cómo Funciona?</a
+                  >{t('header.como_funciona')}</a
                 >
               </li>
             </ul>
@@ -153,32 +157,51 @@ console.log("javascript");
           <li class="mb-2 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Size"
+              href={localizePath("/#Size", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Tamaños</a
+              data-twe-ripple-color="light">{t('header.tamanos')}</a
             >
           </li>
           <li class="mb-2 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Recomendaciones"
+              href={localizePath("/#Recomendaciones", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Recomendaciones</a
+              data-twe-ripple-color="light">{t('header.recomendaciones')}</a
             >
           </li>
           <li class="mb-2 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
             <a
               class="block text-black transition duration-200 hover:text-orange-500 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-              href="#Contacto"
+              href={localizePath("/#Contacto", lang)}
               rel="noreferrer"
               data-twe-nav-link-ref
               data-twe-ripple-init
-              data-twe-ripple-color="light">Contacto</a
+              data-twe-ripple-color="light">{t('header.contacto')}</a
             >
+          </li>
+          <li class="mb-2 lg:mb-0 lg:pe-2">
+            <div class="language-selector flex items-center">
+              <a 
+                href="/es/" 
+                class={`${lang === 'es' ? 'font-bold text-orange-500' : ''} px-2 hover:text-orange-500 transition duration-200 flex items-center gap-1`}
+              >
+                <img src="/assets/icons/panama-flag.svg" alt="Bandera de Panamá" width="20" height="14" class="inline" />
+                <span>ES</span>
+              </a>
+              <span class="text-gray-400">|</span>
+              <a 
+                href="/en/" 
+                class={`${lang === 'en' ? 'font-bold text-orange-500' : ''} px-2 hover:text-orange-500 transition duration-200 flex items-center gap-1`}
+              >
+                <img src="/assets/icons/usa-flag.svg" alt="United States Flag" width="20" height="14" class="inline" />
+                <span>EN</span>
+              </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -187,7 +210,7 @@ console.log("javascript");
 
 
   <div class="flecha">
-    <a href="#Inicio" rel="noreferrer" aria-label="flecha_subir_inicio">
+    <a href={localizePath("/#Inicio", lang)} rel="noreferrer" aria-label="flecha_subir_inicio">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9">
         <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
       </svg>

@@ -1,10 +1,13 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Steps" class="pt-14">
   <div data-aos="fade-down" data-aos-offset="0">
-    <h2 class="text-center text-3xl m-2">¿Cómo Funciona?</h2>
+    <h2 class="text-center text-3xl m-2">{t('steps.titulo')}</h2>
     <div class="lg:border-b lg:border-t lg:border-gray-200">
       <nav class="px-2 sm:px-4 lg:px-2" aria-label="Progress">
         <ol
@@ -43,10 +46,10 @@ console.log("javascript");
                   </span>
                   <span class="ml-4 mt-0.5 flex min-w-0 flex-col">
                     <span class="text-sm font-medium text-gray-500"
-                      >Paso 1:</span
+                      >{lang === 'es' ? 'Paso 1:' : 'Step 1:'}</span
                     >
                     <p class="text-sm font-medium text-black">
-                      Cotiza un espacio mediante el formulario.
+                      {t('steps.paso1.descripcion')}
                     </p>
                   </span>
                 </span>
@@ -82,11 +85,10 @@ console.log("javascript");
                   </span>
                   <span class="ml-4 mt-0.5 flex min-w-0 flex-col">
                     <span class="text-sm font-medium text-gray-500"
-                      >Paso 2:</span
+                      >{lang === 'es' ? 'Paso 2:' : 'Step 2:'}</span
                     >
                     <p class="text-sm font-medium text-black">
-                      Recibe una asesoría a la medida de almacenajes y mini
-                      depósitos.
+                      {t('steps.paso2.descripcion')}
                     </p>
                   </span>
                 </span>
@@ -144,10 +146,10 @@ console.log("javascript");
                   </span>
                   <span class="ml-4 mt-0.5 flex min-w-0 flex-col">
                     <span class="text-sm font-medium text-gray-500"
-                      >Paso 3:</span
+                      >{lang === 'es' ? 'Paso 3:' : 'Step 3:'}</span
                     >
                     <p class="text-sm font-medium text-black">
-                      Realiza el pago en línea.
+                      {t('steps.paso3.descripcion')}
                     </p>
                   </span>
                 </span>
@@ -200,11 +202,10 @@ console.log("javascript");
                   </span>
                   <span class="ml-4 mt-0.5 flex min-w-0 flex-col">
                     <span class="text-sm font-medium text-gray-500"
-                      >Paso 4:</span
+                      >{lang === 'es' ? 'Paso 4:' : 'Step 4:'}</span
                     >
                     <p class="text-sm font-medium text-black">
-                      Libera tu espacio y disfruta de la comodidad de tu
-                      depósito.
+                      {t('steps.paso4.descripcion')}
                     </p>
                   </span>
                 </span>

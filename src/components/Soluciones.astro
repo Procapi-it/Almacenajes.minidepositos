@@ -1,18 +1,21 @@
 ---
-console.log("javascript");
 import { Image } from 'astro:assets';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import imagen1 from '/src/assets/Operativos.webp';
 import imagen2 from '/src/assets/Montacarga.webp';
 import imagen3 from '/src/assets/Seguridad.webp';
 import imagen4 from '/src/assets/Depositos-techados.webp';
 import imagen5 from '/src/assets/locker.webp';
 import imagen6 from '/src/assets/Elevador-de-carga.webp';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Soluciones" class="m-auto pt-14">
   <div data-aos="fade-down">
     <h2 class="text-center text-3xl">
-      Soluciones de almacenajes rápido y confiable
+      {lang === 'es' ? 'Soluciones de almacenajes rápido y confiable' : 'Fast and reliable storage solutions'}
     </h2>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div
@@ -22,18 +25,18 @@ import imagen6 from '/src/assets/Elevador-de-carga.webp';
           <h3
             class="font-manrope text-2xl text-gray-900 font-bold leading-[4rem] mb-7'0p text-center lg:text-left"
           >
-            Tu tranquilidad es nuestra prioridad
+            {lang === 'es' ? 'Tu tranquilidad es nuestra prioridad' : 'Your peace of mind is our priority'}
           </h3>
           <p class="text-lg text-gray-500 mb-16 text-center lg:text-left">
-            Almacenajes Minidepósitos: 30 años de experiencia en Panamá. Acceso
-            directo a bodegas, seguridad 24/7 y flexibilidad a precios
-            amigables.
+            {lang === 'es' 
+              ? 'Almacenajes Minidepósitos: 30 años de experiencia en Panamá. Acceso directo a bodegas, seguridad 24/7 y flexibilidad a precios amigables.' 
+              : 'Almacenajes Minidepósitos: 30 years of experience in Panama. Direct access to storage units, 24/7 security and flexibility at friendly prices.'}
           </p>
           <a
             href="#Cotizacion"
             rel="noreferrer"
             class="m-auto rounded border-2 border-orange-500 primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-300 hover:text-neutral-200 focus:border-neutral-300 focus:text-neutral-200 focus:outline-none focus:ring-0 active:border-neutral-300 active:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600"
-            >Obtén tu cotización ahora</a
+            >{t('banner.cta')}</a
           >
         </div>
         <div class="w-full lg:w-1/2 lg:mt-0 md:mt-40 mt-16 max-lg:max-w-2xl">

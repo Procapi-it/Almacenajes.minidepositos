@@ -1,0 +1,26 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div class="language-selector">
+  {
+    Object.entries(languages).map(([lang_code, label]) => (
+      <a 
+        href={`/${lang_code}/`} 
+        class={`${lang === lang_code ? 'font-bold text-orange-500' : ''} px-2 hover:text-orange-500 transition duration-200`}
+      >
+        {label}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .language-selector {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>

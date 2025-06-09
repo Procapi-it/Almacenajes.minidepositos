@@ -1,10 +1,15 @@
 ---
-console.log("javascript");
 import "../css/input.css";
 import { Image } from "astro:assets";
 import texto from "/src/assets/Mes_gratis.webp";
+import texto2 from "/src/assets/Mes_gratis_en.webp";
 import Guarda from "/src/assets/Guarda.webp";
+import Guarda2 from "/src/assets/Guarda_en.webp";
 import chica from "/src/assets/Chica-1.webp";
+import { getLangFromUrl, useTranslations, localizePath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Inicio" class="xs:pt-16 sm:pt-16 md:pt-18 lg:pt-16">
@@ -13,7 +18,7 @@ import chica from "/src/assets/Chica-1.webp";
         class="max-w-lg md:grid md:max-w-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 justify-around"
     >
         <div
-            class="bg-[url('/src/assets/Fondo_izq.webp')] sm:w-full md:h-full lg:max-h-lg lg:h-full md:h-auto md:w-full lg:w-full h-5/6 bg-cover bg-no-repeat m-0 p-0 m-auto"
+            class="bg-[url('/src/assets/Fondo_izq.webp')] sm:w-full lg:max-h-lg lg:h-full md:h-auto md:w-full lg:w-full h-5/6 bg-cover bg-no-repeat p-0 m-auto"
         >
             <div
                 class="flex m-auto sm:w-full md:h-full md:w-full lg:w-full lg:h-full h-5/6 col-span-1"
@@ -22,7 +27,7 @@ import chica from "/src/assets/Chica-1.webp";
                     class="m-auto flex xs:h-2/6 xs:w-2/5 sm:w-2/5 sm:h-2/6 md:w-4/5 md:h-3/6 lg:h-3/6 lg:w-7/12"
                 >
                     <Image
-                        src={Guarda}
+                        src={lang === "en" ? Guarda2 : Guarda}
                         alt="Cotiza y guarda con nosotros"
                         class="bg-contain bg-no-repeat xs:my-3 sm:my-2 md:my-0 lg:my-0"
                     />
@@ -40,25 +45,23 @@ import chica from "/src/assets/Chica-1.webp";
                             class="flex-row items-center mt-4 col-span-1"
                         >
                             <Image
-                                src={texto}
+                                src={lang === "en" ? texto2 : texto}
                                 alt="Promoción alquiler de minidepósitos y bodegas un mes gratis"
                                 class="bg-cover bg-no-repeat w-full h-auto ml-0"
                             />
                             <p class="p-8 text-md text-white text-center m-auto">
-                                Reserva tu espacio hoy <br />
-                                y guarda tus cosas <br />
-                                sin costo inicial!
+                                {t('banner.promo')}
                             </p>
                             <div class="m-auto text-center">
                                 <a
                                     type="button"
-                                    href="#Cotizacion"
+                                    href={localizePath("/#Cotizacion", lang)}
                                     class="inline-block m-3 rounded text-primary font-bold border-orange-500 primary px-6 pb-[6px] pt-2 text-xs uppercase leading-normal text-neutral transition duration-150 ease-in-out hover:border-orange-300 focus:border-neutral-300 focus:text-neutral-200 focus:outline-none focus:ring-0 active:border-neutral-300 active:text-neutral-200"
                                     rel="noreferrer"
                                     data-twe-ripple-init
                                     data-twe-ripple-color="light"
                                 >
-                                    Obtén tu cotización ahora
+                                    {t('banner.cta')}
                                 </a>
                             </div>
                         </div>

@@ -1,5 +1,8 @@
 ---
-console.log("javascript");
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="Cotizacion" class="pt-14">
@@ -9,33 +12,50 @@ console.log("javascript");
                 Almacenajes Minidepósitos
             </h1>
             <h2 class="text-center text-3xl m-2">
-                ¿Buscas alquiler de bodegas pequeñas o mini depósitos en Panamá?
+                {t('cotizacion.titulo')}
             </h2>
 
             <div
-                class="text-base leading-7 text-gray-700 sm:w-100 md:w-10/12 lg:w-8/12 bg-zinc-200 m-auto p-6 rounded text-center m-auto"
+                class="text-base leading-7 text-gray-700 sm:w-100 md:w-10/12 lg:w-8/12 bg-zinc-200 p-6 rounded text-center m-auto"
             >
                 <p
                     class="mt-2 text-center font-semibold tracking-tight text-gray-900 text-base"
                 >
-                    Deja tus datos aquí
+                    {t('cotizacion.subtitulo')}
                 </p>
                 <div class="">
-                    <div
-                        class="pipedriveWebForms"
-                        data-pd-webforms="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD"
-                        id="idxgylty"
-                    >
-                        <script src="https://webforms.pipedrive.com/f/loader"
-                        ></script>
-                        <iframe
-                            src="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD?embeded=1&uuid=idxgylty"
-                            name="https://almacenajes.net/?page_id=5234&preview=true-idxgylty"
-                            scrolling="no"
-                            title="Web Forms"
-                            style="width: 100%; border: none; height: 596px;"
-                        ></iframe>
-                    </div>
+                    {lang === 'es' ? (
+                        <div
+                            class="pipedriveWebForms"
+                            data-pd-webforms="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD"
+                            id="idxgylty"
+                        >
+                            <script src="https://webforms.pipedrive.com/f/loader"
+                            ></script>
+                            <iframe
+                                src="https://webforms.pipedrive.com/f/30ZjsoyUUNVXItMSgeKPoBkCTPffsPlFQPjz4j5UwN2QDTG2DGlSgsHGoREn47ASD?embeded=1&uuid=idxgylty"
+                                name="https://almacenajes.net/?page_id=5234&preview=true-idxgylty"
+                                scrolling="no"
+                                title="Web Forms"
+                                style="width: 100%; border: none; height: 596px;"
+                            ></iframe>
+                        </div>
+                    ) : (
+                        <div 
+                            class="pipedriveWebForms" 
+                            data-pd-webforms="https://webforms.pipedrive.com/f/1DXO2arYktm3uaLISiSIT6xDmwJork1W7NRLR9mGZttKuN1Pb2YNsZSgb75d13Xmr"
+                            id="idxgylty-en"
+                        >
+                            <script src="https://webforms.pipedrive.com/f/loader"></script>
+                            <iframe
+                                src="https://webforms.pipedrive.com/f/1DXO2arYktm3uaLISiSIT6xDmwJork1W7NRLR9mGZttKuN1Pb2YNsZSgb75d13Xmr?embeded=1&uuid=idxgylty-en"
+                                name="https://almacenajes.net/?page_id=5234&preview=true-idxgylty-en"
+                                scrolling="no"
+                                title="Web Forms"
+                                style="width: 100%; border: none; height: 596px;"
+                            ></iframe>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

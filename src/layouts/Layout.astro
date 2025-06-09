@@ -1,112 +1,125 @@
 ---
-
 import "aos/dist/aos.css";
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
-	title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="es">
-	<head>
-		<!-- Google tag (gtag.js) -->
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9FEEJYKVT"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				window.dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', 'G-W9FEEJYKVT');
-		</script>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Obtén 1 mes gratis, depositos desde $9.99 con seguridad 24/7, acceso anual, aire acondicionado opcional, asistencia en carga y mucho más.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" type="image/svg+xml" href="/favicon.webp" />
-		<link rel="canonical" href="https://www.almacenajes-minidepositos.com/">
-		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<html lang={lang}>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W9FEEJYKVT"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W9FEEJYKVT');
+    </script>
+    
+    <!-- Microsoft Clarity (mapa de calor) -->
+    <script is:inline type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "rnouqnobtw");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="description" content={t('site.description')}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+    <link rel="canonical" href="https://www.almacenajes-minidepositos.com/">
 
-		<meta name="robots" content="index, follow">
-		<meta name="generator" content={Astro.generator} />
-		<meta name="msvalidate.01" content="313FD124B45FBBFEAAE9132B76C5C424" />
-		<title>{title}</title>
-		<script
-			src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
-			crossorigin="anonymous"
-			defer></script>
-		<link
-			href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
-			rel="stylesheet"
-			crossorigin="anonymous"
-		/>
-		
-		
-		<script type="application/ld+json">
-			{
-			  "@context": "http://schema.org",
-			  "@type": "WebPage",
-			  "@id": "https://www.almacenajes-minidepositos.com/#website",
-			  "name": "Almacenajes Minidepósitos",
-			  "url": "https://www.almacenajes-minidepositos.com/",
-			  "description": "Almacenajes Minidepósitos ofrece servicios de alquiler de depósitos, minidepósitos, mini bodegas de 1 metro a 100 metros cuadrados, almacenamiento rápido y confiable. Con 11 sucursales a nivel nacional en ciudad de Panamá, están a 10 minutos de distancia de las viviendas u oficinas. La mayoría de las sucursales son horizontales, permitiendo al cliente entrar con su auto directo a su bodega.",
-			  "publisher": {
-				"@type": "Organization",
-				"name": "Almacenajes Minidepósitos",
-				"logo": {
-				  "@type": "ImageObject",
-				  "url": "https://www.almacenajes-minidepositos.com/Almacenajes-Minidepositos.webp"
-				},
-				"url": "https://www.almacenajes-minidepositos.com/",
-				"sameAs": [
-				  "https://www.instagram.com/almacenajespma/?hl=es",
-				  "https://www.tiktok.com/@almacenajespma",
-				  "https://www.facebook.com/almacenajespma?locale=es_LA",
-				  "https://twitter.com/AlmacenajesPma"
-				]
-			  },
-			  "keywords": "almacenajes, almacenajes y minidepositos, almacenajes minidepositos, depositos en panama, alquiler de bodegas pequeñas, bodegas en panama, alquiler de depositos, mini depositos panama, almacenajes panama, minidepositos panama, almacenamiento seguro"
-			}
-		</script>
-	
-	</head>
-	<body>
-		<slot />
-		<script
-			is:inline
-			src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
-		></script>
-		<script
-			src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"
-			crossorigin="anonymous"
-			defer></script>
-		
-			<script>
-				import { aosInit } from "../js/aos";
-			
-				// runs on initial page load
-				aosInit();
-			  </script>
-			
-	</body>
+    <!-- Enlaces de idiomas alternativos -->
+    <link rel="alternate" href="https://www.almacenajes-minidepositos.com/es/" hreflang="es" />
+    <link rel="alternate" href="https://www.almacenajes-minidepositos.com/en/" hreflang="en" />
+
+    <meta name="robots" content="index, follow">
+    <meta name="generator" content={Astro.generator} />
+    <meta name="msvalidate.01" content="313FD124B45FBBFEAAE9132B76C5C424" />
+    <title>{title || t('site.title')}</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js">
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.almacenajes-minidepositos.com/#website",
+        "name": "Almacenajes Minidepósitos",
+        "url": "https://www.almacenajes-minidepositos.com/",
+        "description": "Almacenajes Minidepósitos ofrece servicios de alquiler de depósitos, minidepósitos, mini bodegas de 1 metro a 100 metros cuadrados, almacenamiento rápido y confiable. Con 11 sucursales a nivel nacional en ciudad de Panamá, están a 10 minutos de distancia de las viviendas u oficinas. La mayoría de las sucursales son horizontales, permitiendo al cliente entrar con su auto directo a su bodega.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Almacenajes Minidepósitos",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.almacenajes-minidepositos.com/Almacenajes-Minidepositos.webp"
+          },
+          "url": "https://www.almacenajes-minidepositos.com/",
+          "sameAs": [
+            "https://www.instagram.com/almacenajespma/?hl=es",
+            "https://www.tiktok.com/@almacenajespma",
+            "https://www.facebook.com/almacenajespma?locale=es_LA",
+            "https://twitter.com/AlmacenajesPma"
+          ]
+        },
+        "keywords": "almacenajes, almacenajes y minidepositos, almacenajes minidepositos, depositos en panama, alquiler de bodegas pequeñas, bodegas en panama, alquiler de depositos, mini depositos panama, almacenajes panama, minidepositos panama, almacenamiento seguro"
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
+    ></script>
+    <script
+      src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"
+      crossorigin="anonymous"
+      defer></script>
+    <script>
+      import { aosInit } from "../js/aos";
+      // runs on initial page load
+      aosInit();
+    </script>
+  </body>
 </html>
 
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-	}
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  }
 </style>
